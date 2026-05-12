@@ -22,8 +22,7 @@
     background-color: #1e1e2e;
     border: 1px solid #2a2a3d;
     border-radius: 12px;
-    padding: .75rem;
-    border-bottom: 4px solid #534AB7;
+    padding: .5rem;
 }
 
 .hover-scale{
@@ -34,6 +33,14 @@
     background-color: #171720;
 }
 
+.lower-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    justify-content: center;
+}
+
 .lower-button{
     background-color: #1e1e2e;
     border: 1px solid #2a2a3d;
@@ -41,7 +48,7 @@
     padding: .5rem;
     
     margin-top: .5rem;
-    border-bottom: 4px solid #534AB7;
+    border-bottom: 2px solid #534AB7;
 }
 
 .dashboard-title {
