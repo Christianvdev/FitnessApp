@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
-import { useNavigate} from 'react-router-dom'
+import { useNavigate, useParams} from 'react-router-dom'
 import api from './api/axios.js'
+
 
 const WorkoutPage = () => {
     const [exercise, setExercise] = useState('')
@@ -10,6 +11,7 @@ const WorkoutPage = () => {
     const [intensity, setIntensity] = useState('')
     const [error, setError] = useState('')
 
+
     const navigate = useNavigate()
     useEffect(() => {
         const token = localStorage.getItem('access_token')
@@ -18,7 +20,7 @@ const WorkoutPage = () => {
         }
     }, [])
 
-    const handleSubmit = async () => {
+    const handleChange = async () => {
         try{
             const response = await api.post('/api/tracker/workout/', {
                 exercise,
@@ -72,7 +74,7 @@ const WorkoutPage = () => {
                 <option value="3">Hard</option>
             </select>
             {error && <p>{error}</p>}
-            <button onClick={handleSubmit}className="form-text header-button hover-scale">Submit</button>
+            <button onClick={handleChange}className="form-text header-button hover-scale">Submit</button>
             <button onClick={handleNav} className="header-button hover-scale"> Go back </button>
         </div>
         
@@ -80,4 +82,7 @@ const WorkoutPage = () => {
     
 }
 
-export default WorkoutPage
+
+
+
+export default WorkoutPage;
