@@ -69,15 +69,15 @@ const DashboardPage = () => {
     return(
     <div className="dashboard">
         <div className='dashboard-header'>
-            <button onClick={handleLogout} className='header-left header-button hover-scale'>logout</button>
-            <button onClick={addWorkout} className='header-right header-button hover-scale'>add workout</button>
+            <button onClick={handleLogout} className='header-left header-button hover-scale' style={{borderBottom: '4px double #ca0000'}}>logout</button>
+            <button onClick={addWorkout} className='header-right header-button hover-scale' style={{borderBottom: '4px double #1D9E75'}}>add workout</button>
         </div>
         
         <h1 className='dashboard-title'>Welcome back {username}</h1>
         <h1 className="dashboard-title">Dashboard</h1>
         <div className="workout-grid">
             {workouts.map(workout =>(
-                <div key={workout.id} className="workout-card" style={{borderLeft: `4px solid ${intensityColor[workout.intensity]}`}}>
+                <div key={workout.id} className="workout-card" style={{borderLeft: `6px solid ${intensityColor[workout.intensity]}`}}>
                     <h2 className="workout-exercise">{workout.exercise}</h2>
                     <div className="workout-stats">
                         <div className="stat">
@@ -93,7 +93,7 @@ const DashboardPage = () => {
                             <span className="stat-label">reps</span>
                         </div>
                     </div>
-                    <div>
+                    <div className='lower-container'>
                         <button onClick={() => handleDelete(workout.id)} className='lower-button'> Delete </button>
                         <button onClick={() => navigate(`/edit-workout/${workout.id}/`)} className='lower-button'>edit</button>
                     </div>
