@@ -1,3 +1,24 @@
+.title{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.dashboard-whole{
+    display: flex;
+
+    margin-top: 2rem;
+}
+
+.dashboard-left{
+    flex: 1;
+}
+
+.dashboard-right{
+    flex: 1;
+}
 .day-container{
     margin-top: 5rem;
 

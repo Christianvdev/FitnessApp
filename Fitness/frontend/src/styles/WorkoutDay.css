@@ -143,3 +143,14 @@
 .exit-button:hover{
     background-color: #292969;
 }
+
+.no-workout{
+    line-height: 2.75rem;
+    font-size: 3rem;
+    font-weight: bolder;
+
+    color: #503ca8;
+        
+    margin-top: 5rem;
+
+}

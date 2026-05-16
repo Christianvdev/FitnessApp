@@ -9,6 +9,7 @@ const WorkoutDisplay = () => {
     const [username, setUsername] = useState('')
     const [latestWorkout, setLatestWorkout] = useState([])
     const {day} = useParams()
+    const [itemCheck, setItemCheck] = useState(false)
     const navigate = useNavigate()
 
 
@@ -60,7 +61,10 @@ const WorkoutDisplay = () => {
             try{
                 const response = await api.get(`/api/tracker/workout/?day=${day}`)
                 setWorkouts(response.data)
-
+                
+                if(response.data.length > 0){
+                    setItemCheck(true)
+                }
                 const latest = response.data[response.data.length - 1]
                 setLatestWorkout(latest)
             }
@@ -79,6 +83,23 @@ const WorkoutDisplay = () => {
     const redirectHome = () => {
             navigate('/home/')
         }
+
+    if(!itemCheck){
+        return(
+            <div className="dashboard">
+               <div className='dashboard-header'>
+                     <button onClick={handleLogout} className='header-left header-button hover-scale' style={{borderBottom: '4px double #ca0000'}}>logout</button>
+                <button onClick={addWorkout} className='header-right header-button hover-scale' style={{borderBottom: '4px double #1D9E75'}}>add workout</button>
+               </div>
+                <div>
+                    <h1 className='no-workout'> No workouts yet. <br/> Try adding a new one?</h1>
+                </div>
+                <div className='exit-container'>
+                    <button className='exit-button' onClick={redirectHome}> R <br/> E <br/> T <br/> U <br/> R <br/> N</button>
+                </div>
+            </div>
+        )
+    }
             
     return(
     <div className="dashboard">

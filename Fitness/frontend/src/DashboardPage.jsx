@@ -42,17 +42,24 @@ const DashboardPage = () => {
     }
 
     return(
-        <div className="dashboard-title">
-            <h2 style={{marginTop: '2rem'}}> Welcome back {username && username}</h2>
-            <div className="day-container">
-                {days.map(day => (
-                    <div key={day}>
-                        <button className="day-button" onClick={() => handleClick(day)}>{day}</button>
+        <div className="dashboard-whole">
+            <h2 style={{marginTop: '2rem'}} className="dashboard-title title"> Welcome back {username && username}</h2>
+            <div className="dashboard-left">
+                <div>
+                    <div className="day-container">
+                        {days.map(day => (
+                            <div key={day}>
+                                <button className="day-button" onClick={() => handleClick(day)}>{day}</button>
+                            </div>
+                        ))}
                     </div>
-                ))}
+                </div>
             </div>
-            
+            <div className="dashboard-right">
+                <h1>Test</h1>
+            </div>
         </div>
+       
 
     )
 
