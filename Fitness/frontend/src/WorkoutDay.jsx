@@ -1,13 +1,17 @@
 
-import './styles/dashboard.css'
+import './styles/WorkoutDay.css'
 import { useEffect, useState } from 'react'
 import api from './api/axios.js'
 import { useParams, useNavigate} from 'react-router-dom'
 
-const DashboardPage = () => {
+const WorkoutDisplay = () => {
     const [workouts, setWorkouts] = useState([])
     const [username, setUsername] = useState('')
+    const [latestWorkout, setLatestWorkout] = useState([])
+    const {day} = useParams()
     const navigate = useNavigate()
+
+
 
     const intensityColor = {
         1: '#1D9E75',
@@ -19,11 +23,11 @@ const DashboardPage = () => {
         localStorage.removeItem('access_token')
         localStorage.removeItem('refresh_token')
 
-        navigate('/login')
+        navigate('/')
     }
 
     const addWorkout = () => {
-        navigate('/workout-log')
+        navigate(`/workout-log/${day}/`)
     }
     
     const handleDelete = async (id) => {
@@ -41,7 +45,7 @@ const DashboardPage = () => {
         
         const token = localStorage.getItem('access_token')
         if(!token){
-            navigate('/login')
+            navigate('/')
             return
         }   
         
@@ -54,18 +58,28 @@ const DashboardPage = () => {
 
         const fetchWorkouts = async () => {
             try{
-                const response = await api.get('/api/tracker/workout/')
+                const response = await api.get(`/api/tracker/workout/?day=${day}`)
                 setWorkouts(response.data)
+
+                const latest = response.data[response.data.length - 1]
+                setLatestWorkout(latest)
             }
                 catch(err){
                 console.log(err)
             }
 
         }
+
+
+
         fetchWorkouts()
         fetchUser()
-    }, [])
-    
+    }, [day])
+
+    const redirectHome = () => {
+            navigate('/home/')
+        }
+            
     return(
     <div className="dashboard">
         <div className='dashboard-header'>
@@ -73,8 +87,12 @@ const DashboardPage = () => {
             <button onClick={addWorkout} className='header-right header-button hover-scale' style={{borderBottom: '4px double #1D9E75'}}>add workout</button>
         </div>
         
-        <h1 className='dashboard-title'>Welcome back {username}</h1>
-        <h1 className="dashboard-title">Dashboard</h1>
+
+        <div className='exit-container'>
+            <button className='exit-button' onClick={redirectHome}> R <br/> E <br/> T <br/> U <br/> R <br/> N</button>
+        </div>
+
+        <h1 className='dashboard-title'>{day}</h1>
         <div className="workout-grid">
             {workouts.map(workout =>(
                 <div key={workout.id} className="workout-card" style={{borderLeft: `6px solid ${intensityColor[workout.intensity]}`}}>
@@ -101,6 +119,34 @@ const DashboardPage = () => {
             ))}
 
         </div>
+
+             <div className='history-section'>
+                {latestWorkout &&(
+                    <>
+                        <h2>Recently done:</h2>
+                        <div className='workout-card' style={{borderBottom: `4px solid ${intensityColor[latestWorkout.intensity]}`}}>
+                            <div className='workout-exercise'>{latestWorkout && <h1>{latestWorkout.exercise}</h1>}</div>
+                            <div className='workout-stats'>
+                                <div className='stat'>
+                                    {latestWorkout && <span className='stat-value'>{latestWorkout.weight}</span>}
+                                    <span className='stat-value'>LBS</span>
+                                </div>
+                                <div className='stat'>
+                                    {latestWorkout && <span className='stat-value'>{latestWorkout.sets}</span>}
+                                    <span className='stat-value'>SETS</span>
+                                </div>
+                                <div className='stat'>
+                                    {latestWorkout && <span className='stat-value'>{latestWorkout.reps}</span>}
+                                    <span className='stat-value'>REPS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </>
+                )}
+                
+                
+            </div>
+       
     </div>
 )
 
@@ -126,6 +172,10 @@ const EditWorkout = () =>{
         }
     }, [])
 
+    const handleNav = () => {
+        navigate(`/home/`)
+    }
+
 
     const handleSubmit = async () => {
         try{
@@ -140,7 +190,7 @@ const EditWorkout = () =>{
         catch(err){
             console.log(err)
         }
-        navigate('/dashboard')
+        navigate('/')
 
     }
     
@@ -179,8 +229,9 @@ const EditWorkout = () =>{
             </select>
             {error && <p>{error}</p>}
             <button onClick={handleSubmit}className="form-text header-button hover-scale">Submit</button>
+            <button onClick={handleNav} className="header-button hover-scale"> Go back </button>
         </div>
     )
 }
 
-export {DashboardPage, EditWorkout}
+export {WorkoutDisplay, EditWorkout}

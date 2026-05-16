@@ -13,12 +13,12 @@ const LoginPage = () => {
     useEffect(() =>{
         const token = localStorage.getItem('access_token')
         if(token){
-            navigate('/dashboard')
+            navigate('/home')
         }
     }, [])
 
     const transferRegister = () => {
-        navigate('/')
+        navigate('/register')
     }
 
 
@@ -30,7 +30,7 @@ const LoginPage = () => {
             })
             localStorage.setItem('access_token', response.data.access)
             localStorage.setItem('refresh_token', response.data.refresh)
-            navigate('/dashboard')
+            navigate('/home')
         }
         catch(err){
             setError('Invalid username or password')

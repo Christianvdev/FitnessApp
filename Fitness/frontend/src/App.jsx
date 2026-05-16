@@ -1,19 +1,21 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Login from './Login.jsx'
-import {DashboardPage, EditWorkout} from './dashboard.jsx'
+import {WorkoutDisplay, EditWorkout} from './WorkoutDay.jsx'
 import RegisterPage from './Register.jsx'
-import WorkoutPage from './WorkoutLog.jsx'
+import WorkoutLogging from './WorkoutLog.jsx'
+import DashboardPage from './DashboardPage.jsx'
 
 function App() {
   return(
     <BrowserRouter>
       <Routes>
-        <Route path='/login' element={<Login/>} />
-        <Route path='/workout-log/' element={<WorkoutPage/>} />
-        <Route path='/dashboard' element={<DashboardPage/>} />
-        <Route path='' element={<RegisterPage/>} />
+        <Route path='/' element={<Login/>} />
+        <Route path='/workout-log/:day' element={<WorkoutLogging/>} />
+        <Route path='/dashboard/:day' element={<WorkoutDisplay/>} />
+        <Route path='/register' element={<RegisterPage/>} />
         <Route path='/edit-workout/:id' element={<EditWorkout/>}/>
+        <Route path='/home' element={<DashboardPage/>}/>
       </Routes>
     </BrowserRouter>
   )

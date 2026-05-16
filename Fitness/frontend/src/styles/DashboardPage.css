@@ -1,0 +1,34 @@
+.day-container{
+    margin-top: 5rem;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 1.5rem;
+}
+
+.day-button{
+    background-color: #1e1e2e;
+    border: 1px solid #2a2a3d;
+    border-bottom:4px solid #534AB7;
+    border-radius: 4px;
+
+    font-size: 3rem;
+    padding: .5rem;
+    width: 20rem;
+
+      transition: width 0.1s ease, background-color 0.1s ease; 
+}
+.day-button:hover{
+    background-color: #242436;
+    border: 1px solid #2a2a3d;
+    border-bottom:4px solid #534AB7;;
+    border-radius: 4px;
+    width: 22rem;
+
+    font-size: 3rem;
+    padding: .5rem;
+}

@@ -24,14 +24,14 @@ const RegisterPage = () => {
                 password
             })
             alert('successful registration')
-            navigate('/login')
+            navigate('/')
 
         }catch(err){
             setError('Invalid credentials')
         }
     }
     const transferLogin = () => {
-        navigate('/Login')
+        navigate('/')
     }
  
     return(

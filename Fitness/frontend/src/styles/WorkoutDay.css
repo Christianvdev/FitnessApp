@@ -43,10 +43,9 @@
 
 .lower-button{
     background-color: #1e1e2e;
-    border: 1px solid #2a2a3d;
     border-radius: 12px;
     padding: .5rem;
-    
+    border: 1px solid #2a2a3d;
     margin-top: .5rem;
     border-bottom: 2px solid #534AB7;
 }
@@ -107,4 +106,40 @@
     color: #6b6b8a;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+}
+
+
+.form-text{
+    background-color: #1e1e2e;
+    border: 1px solid #2a2a3d;
+    border-left: 4px solid #534AB7;
+    border-radius: 12px;
+    padding: .5rem;
+}
+
+.history-section{
+    margin-top: 3rem;
+}
+
+.exit-container{
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translate(3rem, -50%);
+}
+
+.exit-button{
+    height: 70vh;
+    width: 4rem;
+
+    background-color: #3d2c88;
+    border: 2px solid #2f2b5e;
+
+     transition: background-color .2s ease, color .2s ease;
+
+    border-radius: 100px;
+}
+
+.exit-button:hover{
+    background-color: #292969;
 }
