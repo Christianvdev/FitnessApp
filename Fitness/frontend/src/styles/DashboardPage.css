@@ -1,5 +1,5 @@
 .title{
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -52,4 +52,38 @@
 
     font-size: 3rem;
     padding: .5rem;
+}
+
+.dr-header{
+    color: #503ca8;
+    text-shadow: 2px 2px 2px #28243a;
+
+}
+
+.dr-box{
+    
+}
+
+.dr-stat{
+    background: #13131f;
+    border-radius: 8px;
+    border-bottom: 4px solid #503ca8;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-self: center;
+
+    width: 80%;
+}
+
+.dashboard-right{
+    margin-top: 5rem;
+    line-height: 3rem;
+
+    background-color: #1e1e2e;
+    border-bottom: 8px solid #503ca8;
+
+    border-radius: 12px;
 }

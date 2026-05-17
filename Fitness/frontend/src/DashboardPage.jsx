@@ -9,6 +9,8 @@ const DashboardPage = () => {
     const [selectedDay, setSelectedDay] = useState('Monday')
 
     const [username, setUsername] = useState('')
+    const [totalWorkouts, setTotalWorkouts] = useState(0)
+    const [totalSets, setTotalSets] = useState(0)
     const navigate = useNavigate()
     useEffect(() => {
         
@@ -33,6 +35,23 @@ const DashboardPage = () => {
            
         }
 
+        const fetchWorkouts = async () => {
+            try{
+                const response = await api.get(`/api/tracker/workout/`)
+                setTotalWorkouts(response.data.length)
+                
+                const total = response.data.reduce((sum, workout,) => {
+                    return sum + workout.sets
+                }, 0)
+
+                setTotalSets(total)
+            }
+                catch(err){
+                console.log(err)
+            }
+
+        }
+        fetchWorkouts()
         fetchUser()
     }, [])
 
@@ -56,7 +75,15 @@ const DashboardPage = () => {
                 </div>
             </div>
             <div className="dashboard-right">
-                <h1>Test</h1>
+                <h1 className="dr-header"> This weeks:</h1>
+                <div className="workout-amount">
+                        <h1>Total workouts:</h1>
+                        {totalWorkouts && <h1 className="dr-stat">{totalWorkouts}</h1>}
+                </div>
+                <div className="workout-sets">
+                    <h1>total sets:</h1>
+                    {totalSets && <h1 className="dr-stat">{totalSets}</h1>}
+                </div>
             </div>
         </div>
        
