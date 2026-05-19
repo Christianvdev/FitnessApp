@@ -1,28 +1,22 @@
 .dashboard {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: .5rem;
 }
-.dashboard-header{
-    display: flex;
-    flex-direction: row;
 
-    justify-content: space-between;
 
-}
-.header-left{
-   flex:1;
-   max-width: 100px;
-}
-.header-right{
-    flex:1;
-    max-width: 100px;
-}
 .header-button{
     background-color: #1e1e2e;
     border: 1px solid #2a2a3d;
     border-radius: 12px;
     padding: .5rem;
+}
+
+.dashboard-header{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
 }
 
 .hover-scale{
@@ -31,6 +25,11 @@
 .hover-scale:hover{
     transform: scale(1.1);
     background-color: #171720;
+}
+
+.day{
+    text-transform: uppercase;
+    letter-spacing: .5rem;
 }
 
 .lower-container{
@@ -42,12 +41,19 @@
 }
 
 .lower-button{
-    background-color: #1e1e2e;
-    border-radius: 12px;
+    background-color: #1e1e2e00;
     padding: .5rem;
-    border: 1px solid #2a2a3d;
+    border: 1px solid #2a2a3d00;
     margin-top: .5rem;
+    border-bottom: 2px solid #646464;
+    font-size: .75rem;
+    transition: all .2s ease;
+}
+.lower-button:hover{
     border-bottom: 2px solid #534AB7;
+    padding-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 .dashboard-title {
@@ -64,9 +70,9 @@
 }
 
 .workout-card {
-    background: #1e1e2e;
-    border: 1px solid #2a2a3d;
-    border-radius: 12px;
+    background: #090e1d;
+    border: 1px solid #0e0e14;
+    border-radius: 4px;
     padding: 1.25rem;
     
 }
@@ -86,15 +92,16 @@
 }
 
 .stat {
-    background: #13131f;
-    border-radius: 8px;
+    background: #00000041;
+    border-radius: 2px;
     padding: 10px;
     text-align: center;
     display: flex;
     flex-direction: column;
     gap: 4px;
-}
 
+    transition: all .2s ease;
+}
 .stat-value {
     font-size: 20px;
     font-weight: 500;
@@ -125,18 +132,16 @@
     position: fixed;
     left: 0;
     top: 50%;
-    transform: translate(3rem, -50%);
+    transform: translate(15rem, -50%);
 }
 
 .exit-button{
     height: 70vh;
     width: 4rem;
 
-    background-color: #100b27;
-    border: 2px solid #37353f;
-
-     transition: background-color .2s ease, color .2s ease;
-
+    background-color: transparent;
+    border: 10px double #7a7676;
+    transition: background-color .2s ease, color .2s ease;
     border-radius: 100px;
     color: #534AB7;
     font-size: 1.5rem;
@@ -145,18 +150,75 @@
 
 .exit-button:hover{
     background-color: #534AB7;
-    color: #100b27;
+    color: #100b27; 
+    border: 2px solid #534AB7;
 }
 
 .no-workout{
-    line-height: 2.75rem;
-    font-size: 3rem;
-    font-weight: bolder;
-
-    color: #503ca8;
+    line-height: 3rem;
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    margin: 0;
+    color: #84828d;
         
     margin-top: 5rem;
 
+}
+
+.nw-logout{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #534AB7;
+    border-radius: 0;
+    color: #e0e0ff;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    transform: translateY();
+
+}
+
+.nw-add{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #534AB7;
+    border-radius: 0;
+    color: #e0e0ff;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    transform: translateY();
+}
+
+
+.nw-logout:hover{
+    color: #ffffff;
+    transform: translateY(-3px);
+
+}
+
+.nw-add:hover{
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+.top-button{
+    background-color: #00000000;
+    border: #00000000;
+    border-bottom: 2px solid #534AB7;
+    transition: all .2s ease;
+}
+
+.top-button:hover{
+    border-bottom: 6px double #534AB7;
+    padding-bottom: 1rem;
 }
 
 

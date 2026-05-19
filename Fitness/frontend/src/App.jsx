@@ -14,7 +14,7 @@ function App() {
         <Route path='/workout-log/:day' element={<WorkoutLogging/>} />
         <Route path='/dashboard/:day' element={<WorkoutDisplay/>} />
         <Route path='/register' element={<RegisterPage/>} />
-        <Route path='/edit-workout/:id' element={<EditWorkout/>}/>
+        <Route path='/edit-workout/:id/:day' element={<EditWorkout/>}/>
         <Route path='/home' element={<DashboardPage/>}/>
       </Routes>
     </BrowserRouter>

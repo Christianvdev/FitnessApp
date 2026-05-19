@@ -2,13 +2,13 @@
 import './styles/WorkoutDay.css'
 import { useEffect, useState } from 'react'
 import api from './api/axios.js'
-import { useParams, useNavigate} from 'react-router-dom'
+import { useParams, useNavigate, data} from 'react-router-dom'
 
 const WorkoutDisplay = () => {
     const [workouts, setWorkouts] = useState([])
     const [username, setUsername] = useState('')
     const [latestWorkout, setLatestWorkout] = useState([])
-    const {day} = useParams()
+    const {id, day} = useParams()
     const [itemCheck, setItemCheck] = useState(false)
     const navigate = useNavigate()
 
@@ -28,7 +28,7 @@ const WorkoutDisplay = () => {
     }
 
     const addWorkout = () => {
-        navigate(`/workout-log/${day}/`)
+        navigate(`/workout-log/${day}`)
     }
     
     const handleDelete = async (id) => {
@@ -88,11 +88,11 @@ const WorkoutDisplay = () => {
         return(
             <div className="dashboard">
                <div className='dashboard-header'>
-                     <button onClick={handleLogout} className='header-left header-button hover-scale' style={{borderBottom: '4px double #ca0000'}}>logout</button>
-                <button onClick={addWorkout} className='header-right header-button hover-scale' style={{borderBottom: '4px double #1D9E75'}}>add workout</button>
+                     <button onClick={handleLogout} className='nw-logout'>logout</button>
+                <button onClick={addWorkout} className='nw-add'>add workout</button>
                </div>
                 <div>
-                    <h1 className='no-workout'> No workouts yet. <br/> Try adding a new one?</h1>
+                    <h1 className='no-workout'> It's {day}. Nothing logged yet.<br/> Start your first workout for today?</h1>
                 </div>
                 <div className='exit-container'>
                     <button className='exit-button' onClick={redirectHome}> R <br/> E <br/> T <br/> U <br/> R <br/> N</button>
@@ -104,8 +104,8 @@ const WorkoutDisplay = () => {
     return(
     <div className="dashboard">
         <div className='dashboard-header'>
-            <button onClick={handleLogout} className='header-left header-button hover-scale' style={{borderBottom: '4px double #ca0000'}}>logout</button>
-            <button onClick={addWorkout} className='header-right header-button hover-scale' style={{borderBottom: '4px double #1D9E75'}}>add workout</button>
+            <button onClick={handleLogout} className='header-left header-button top-button'>logout</button>
+            <button onClick={addWorkout} className='header-right header-button top-button'>add workout</button>
         </div>
         
 
@@ -113,7 +113,7 @@ const WorkoutDisplay = () => {
             <button className='exit-button' onClick={redirectHome}> R <br/> E <br/> T <br/> U <br/> R <br/> N</button>
         </div>
 
-        <h1 className='dashboard-title'>{day}</h1>
+        <h1 className='dashboard-title day'>{day}</h1>
         <div className="workout-grid">
             {workouts.map(workout =>(
                 <div key={workout.id} className="workout-card" style={{borderLeft: `6px solid ${intensityColor[workout.intensity]}`}}>
@@ -134,7 +134,7 @@ const WorkoutDisplay = () => {
                     </div>
                     <div className='lower-container'>
                         <button onClick={() => handleDelete(workout.id)} className='lower-button'> Delete </button>
-                        <button onClick={() => navigate(`/edit-workout/${workout.id}/`)} className='lower-button'>edit</button>
+                        <button onClick={() => navigate(`/edit-workout/${workout.id}/${day}`)} className='lower-button'>edit</button>
                     </div>
                 </div>
             ))}
@@ -172,7 +172,7 @@ const WorkoutDisplay = () => {
 )
 
 
-
+  
 }
 const EditWorkout = () =>{
     const [exercise, setExercise] = useState('')
@@ -182,7 +182,7 @@ const EditWorkout = () =>{
     const [intensity, setIntensity] = useState('')
     const [error, setError] = useState('')
 
-    const {id} = useParams();
+    const {id, day} = useParams();
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -197,6 +197,10 @@ const EditWorkout = () =>{
         navigate(`/home/`)
     }
 
+    const dayMap = {
+        'Monday': 1, 'Tuesday': 2, 'Wednesday': 3,
+        'Thursday': 4, 'Friday': 5, 'Saturday': 6, 'Sunday': 7,
+    }
 
     const handleSubmit = async () => {
         try{
@@ -205,13 +209,14 @@ const EditWorkout = () =>{
                 weight: parseInt(weight),
                 sets: parseInt(sets),
                 reps: parseInt(reps),
-                intensity: parseInt(intensity)
+                intensity: parseInt(intensity),
+                days: dayMap[day]
         })
         }
         catch(err){
             console.log(err)
         }
-        navigate('/')
+        navigate(`/dashboard/${day}`)
 
     }
     

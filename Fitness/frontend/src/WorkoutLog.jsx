@@ -36,7 +36,7 @@ const WorkoutLogging = () => {
                 intensity: parseInt(intensity),
                 days: dayMap[day]
             })
-            navigate('/home')
+            navigate(`/dashboard/${day}`)
         }
         catch(err){
             console.log('Error status:', err.response.status)

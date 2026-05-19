@@ -76,12 +76,12 @@ const DashboardPage = () => {
             </div>
             <div className="dashboard-right">
                 <h1 className="dr-header"> This weeks:</h1>
-                <div className="workout-amount">
+                <div className="dr-box">
                         <h1>Total workouts:</h1>
                         {totalWorkouts && <h1 className="dr-stat">{totalWorkouts}</h1>}
                 </div>
-                <div className="workout-sets">
-                    <h1>total sets:</h1>
+                <div className="dr-box">
+                    <h1 className="dr-header">total sets:</h1>
                     {totalSets && <h1 className="dr-stat">{totalSets}</h1>}
                 </div>
             </div>
