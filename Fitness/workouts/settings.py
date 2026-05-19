@@ -134,13 +134,4 @@ REST_FRAMEWORK = {
     ],
 }
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',
-    'https://fitness-app-ten-nu.vercel.app',
-]
-
-CORS_ALLOWED_ORIGIN_REGEXES = [
-    r"^https://.*\.vercel\.app$",
-]
-
 CORS_ALLOW_ALL_ORIGINS = True
