@@ -136,5 +136,6 @@ REST_FRAMEWORK = {
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
-    'https://fitness-app-ten-nu.vercel.app',
+    'https://fitness-app-ten-nu.vercel.appgit commit -m "fix CORS trailing slash"',
+    'https://fitness-avjl1pqgw-christianvdevs-projects.vercel.app',
 ]
