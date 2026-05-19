@@ -139,3 +139,4 @@ CORS_ALLOWED_ORIGINS = [
     'fitnessapp-production-402a.up.railway.app',
     'https://fitness-avjl1pqgw-christianvdevs-projects.vercel.app',
 ]
+CORS_ALLOW_ALL_ORIGINS = True
