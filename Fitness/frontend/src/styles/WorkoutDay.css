@@ -130,9 +130,9 @@
 
 .exit-container{
     position: fixed;
-    left: 0;
+    left: 3rem;
     top: 50%;
-    transform: translate(15rem, -50%);
+    transform: translateY(-50%);
 }
 
 .exit-button{
