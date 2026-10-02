@@ -5,8 +5,8 @@ from .views import workoutTrackerViewSet
 
 router = DefaultRouter()
 
-router.register(r'workout',workoutTrackerViewSet, basename='workout')
+router.register(r'workout', workoutTrackerViewSet, basename='workout')
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
 ]

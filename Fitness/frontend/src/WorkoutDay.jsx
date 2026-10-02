@@ -58,20 +58,24 @@ const WorkoutDisplay = () => {
         
 
         const fetchWorkouts = async () => {
-            try{
+            try {
                 const response = await api.get(`/api/tracker/workout/?day=${day}`)
-                setWorkouts(response.data)
-                
-                if(response.data.length > 0){
+
+                const workoutData = response.data.results || response.data
+
+                setWorkouts(workoutData)
+
+                if (workoutData.length > 0) {
                     setItemCheck(true)
+                    const latest = workoutData[workoutData.length - 1]
+                    setLatestWorkout(latest)
+                } else {
+                    setItemCheck(false)
+                    setLatestWorkout(null)
                 }
-                const latest = response.data[response.data.length - 1]
-                setLatestWorkout(latest)
-            }
-                catch(err){
+            } catch (err) {
                 console.log(err)
             }
-
         }
 
 
