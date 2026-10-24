@@ -1,111 +1,119 @@
+/* Fitness Tracker - shared colors and base styles.
+   Dark colors are defined once so each page stays consistent. */
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color-scheme: dark;
+  --bg: #101114;
+  --panel: #1a1c21;
+  --panel-hover: #23262d;
+  --field: #14161b;
+  --border: #30333b;
+  --text: #f4f5f7;
+  --muted: #a3a7b2;
+  --soft: #7c828e;
+  --accent: #a8b8ff;
+  --accent-dark: #303b63;
+  --danger: #f1a1a7;
+  --shadow: 0 14px 35px rgba(0, 0, 0, 0.15);
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
   background: var(--bg);
+  color: var(--text);
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #080c14;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
-body {
-  margin: 0;
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
+/* Reset browser defaults */
+* {
   box-sizing: border-box;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--bg);
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+#root {
+  min-height: 100vh;
 }
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
+
+h1, h2, h3, p {
   margin: 0;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+button, input, select, textarea {
+  font: inherit;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Shared input style for the login and workout forms */
+.form-text {
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 15px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--field);
+  color: var(--text);
+  font-size: 14px;
+}
+
+.form-text::placeholder {
+  color: var(--soft);
+}
+
+.form-text:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+select.form-text {
+  cursor: pointer;
+}
+
+.header-button {
+  padding: 12px 17px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.header-button:hover {
+  background: var(--panel-hover);
+  border-color: var(--accent);
+}
+
+.hover-scale {
+  transition: transform 0.2s, background 0.2s;
+}
+
+.hover-scale:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .header-button {
+    padding: 11px 13px;
+  }
 }
