@@ -99,7 +99,7 @@ const WorkoutDisplay = () => {
                     <h1 className='no-workout'> It's {day}. Nothing logged yet.<br/> Start your first workout for today?</h1>
                 </div>
                 <div className='exit-container'>
-                    <button className='exit-button' onClick={redirectHome}> R <br/> E <br/> T <br/> U <br/> R <br/> N</button>
+                    <button className='exit-button' onClick={redirectHome}>← Back to dashboard</button>
                 </div>
             </div>
         )
@@ -114,7 +114,7 @@ const WorkoutDisplay = () => {
         
 
         <div className='exit-container'>
-            <button className='exit-button' onClick={redirectHome}> R <br/> E <br/> T <br/> U <br/> R <br/> N</button>
+            <button className='exit-button' onClick={redirectHome}>← Back to dashboard</button>
         </div>
 
         <h1 className='dashboard-title day'>{day}</h1>
