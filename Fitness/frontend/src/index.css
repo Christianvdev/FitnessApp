@@ -1,36 +1,34 @@
-/* Fitness Tracker - shared colors and base styles.
-   Dark colors are defined once so each page stays consistent. */
+/* Global colors and basic styles.
+   Change these variables to change the whole app. */
 :root {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color-scheme: dark;
-  --bg: #101114;
-  --panel: #1a1c21;
-  --panel-hover: #23262d;
-  --field: #14161b;
-  --border: #30333b;
-  --text: #f4f5f7;
-  --muted: #a3a7b2;
-  --soft: #7c828e;
-  --accent: #a8b8ff;
-  --accent-dark: #303b63;
-  --danger: #f1a1a7;
-  --shadow: 0 14px 35px rgba(0, 0, 0, 0.15);
 
-  background: var(--bg);
+  --bg: #101114;
+  --surface: #1b1d22;
+  --surface-light: #24272d;
+  --border: #34373f;
+  --text: #f5f5f7;
+  --muted: #a5a9b3;
+  --accent: #b6c3ff;
+  --accent-dark: #242c44;
+  --danger: #ffadad;
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+
   color: var(--text);
+  background: var(--bg);
   font-synthesis: none;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Reset browser defaults */
 * {
   box-sizing: border-box;
 }
 
 body {
+  margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  margin: 0;
   background: var(--bg);
 }
 
@@ -42,6 +40,11 @@ h1, h2, h3, p {
   margin: 0;
 }
 
+h1, h2, h3 {
+  color: var(--text);
+  letter-spacing: -0.03em;
+}
+
 button, input, select, textarea {
   font: inherit;
 }
@@ -51,69 +54,49 @@ button {
 }
 
 button:disabled {
-  opacity: 0.5;
+  opacity: 0.55;
   cursor: not-allowed;
 }
 
 button:focus-visible,
 input:focus-visible,
-select:focus-visible,
-a:focus-visible {
+select:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
-/* Shared input style for the login and workout forms */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Shared input styles for all workout forms. */
 .form-text {
   width: 100%;
-  min-height: 46px;
-  padding: 12px 15px;
+  padding: 13px 15px;
   border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--field);
+  border-radius: 11px;
+  outline: none;
+  background: var(--surface-light);
   color: var(--text);
   font-size: 14px;
+  font-weight: 400;
 }
 
 .form-text::placeholder {
-  color: var(--soft);
+  color: var(--muted);
 }
 
 .form-text:focus {
   border-color: var(--accent);
-  outline: none;
 }
 
 select.form-text {
   cursor: pointer;
 }
 
-.header-button {
-  padding: 12px 17px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--panel);
-  color: var(--text);
-  font-size: 13px;
-  font-weight: 600;
-  transition: background 0.2s, border-color 0.2s;
-}
-
-.header-button:hover {
-  background: var(--panel-hover);
-  border-color: var(--accent);
-}
-
-.hover-scale {
-  transition: transform 0.2s, background 0.2s;
-}
-
-.hover-scale:hover {
-  transform: translateY(-2px);
-}
-
 @media (max-width: 600px) {
-  .header-button {
-    padding: 11px 13px;
+  :root {
+    font-size: 15px;
   }
 }
