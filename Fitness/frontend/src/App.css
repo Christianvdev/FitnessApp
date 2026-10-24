@@ -1,26 +1,4 @@
-/* App-wide buttons and reusable pieces.
-   Most page styles live in the styles folder. */
-
-.header-button {
-  padding: 12px 18px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--surface-light);
-  color: var(--text);
-  font-size: 13px;
-  font-weight: 600;
-  transition: background 0.2s, border-color 0.2s;
-}
-
-.header-button:hover {
-  background: var(--accent-dark);
-  border-color: var(--accent);
-}
-
-.hover-scale {
-  transition: transform 0.2s, background 0.2s;
-}
-
-.hover-scale:hover {
-  transform: translateY(-2px);
-}
+/* Shared styles: index.css
+   Dashboard: styles/DashboardPage.css
+   Forms: styles/Login.css
+   Workouts: styles/WorkoutDay.css */
