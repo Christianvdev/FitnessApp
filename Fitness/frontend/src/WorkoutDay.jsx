@@ -11,6 +11,7 @@ const WorkoutDisplay = () => {
     const [latestWorkout, setLatestWorkout] = useState([])
     const {id, day} = useParams()
     const [itemCheck, setItemCheck] = useState(false)
+    const [loading, setLoading] = useState(true)
     const navigate = useNavigate()
 
 
@@ -65,6 +66,7 @@ const WorkoutDisplay = () => {
                 const workoutData = response.data.results || response.data
 
                 setWorkouts(workoutData)
+                setLoading(false)
 
                 if (workoutData.length > 0) {
                     setItemCheck(true)
@@ -76,6 +78,7 @@ const WorkoutDisplay = () => {
                 }
             } catch (err) {
                 console.log(err)
+                setLoading(false)
             }
         }
 
@@ -88,6 +91,8 @@ const WorkoutDisplay = () => {
     const redirectHome = () => {
             navigate('/home/')
         }
+
+    if(loading) return <AppShell section={day}><div className="workout-empty"><p>Loading your exercises...</p></div></AppShell>
 
     if(!itemCheck){
         return(
