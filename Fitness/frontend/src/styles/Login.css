@@ -1,68 +1,62 @@
-/* Login, registration, and workout entry forms. */
+/* Shared layout for login, registration and workout forms. */
 .login-whole {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   justify-content: center;
-  gap: 15px;
-  width: min(100% - 36px, 430px);
+  gap: 14px;
+  width: calc(100% - 36px);
+  max-width: 440px;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 70px 28px;
+  padding: 65px 0;
 }
 
-/* The simple form looks like one clean panel. */
+/* The form feels like a simple, centered card. */
 .login-whole::before {
-  content: "FITNESS / TRACKER";
-  display: block;
+  content: "FITNESS TRACKER";
   margin-bottom: 12px;
-  color: var(--muted);
+  color: var(--accent);
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 2px;
   text-align: center;
 }
 
-.login-whole .form-text {
-  min-height: 49px;
+.login-whole > .form-text {
+  flex-shrink: 0;
 }
 
-.login-whole button.form-text,
-.login-whole .header-button {
-  min-height: 47px;
+.login-whole > button.form-text,
+.login-whole > .header-button {
+  min-height: 46px;
+  border: 1px solid var(--border);
   border-radius: 10px;
-  font-weight: 600;
-}
-
-.login-whole button.form-text {
-  background: #e7eaf4;
-  border-color: #e7eaf4;
-  color: #17191f;
-}
-
-.login-whole button.form-text:hover {
-  background: #c9d2ff;
-  border-color: #c9d2ff;
-}
-
-.login-whole button.form-text + button.form-text {
-  background: transparent;
-  border-color: var(--border);
+  background: var(--panel);
   color: var(--text);
-}
-
-.login-whole button.form-text + button.form-text:hover {
-  background: var(--surface-light);
-}
-
-.login-whole p {
-  color: var(--danger);
   font-size: 13px;
-  text-align: center;
+  font-weight: 600;
+  transition: background .2s;
 }
 
-@media (max-width: 600px) {
-  .login-whole {
-    padding: 50px 10px;
-  }
+.login-whole > button.form-text:hover,
+.login-whole > .header-button:hover {
+  background: var(--panel-hover);
+}
+
+.login-whole > button.form-text:first-of-type,
+.login-whole > .header-button:first-of-type {
+  border-color: transparent;
+  background: #e6eaff;
+  color: #181b25;
+}
+
+.login-whole > button.form-text:first-of-type:hover,
+.login-whole > .header-button:first-of-type:hover {
+  background: #cbd5ff;
+}
+
+.login-whole > p {
+  color: var(--danger);
+  font-size: 12px;
+  text-align: center;
 }
