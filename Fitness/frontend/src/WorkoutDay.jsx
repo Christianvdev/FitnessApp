@@ -1,8 +1,9 @@
+import AppShell, { Icon } from './components/AppShell.jsx'
 
 import './styles/WorkoutDay.css'
 import { useEffect, useState } from 'react'
 import api from './api/axios.js'
-import { useParams, useNavigate, data} from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 const WorkoutDisplay = () => {
     const [workouts, setWorkouts] = useState([])
@@ -90,23 +91,26 @@ const WorkoutDisplay = () => {
 
     if(!itemCheck){
         return(
+            <AppShell section={day}>
             <div className="dashboard">
+               <div className="workout-page-heading"><div><p className="fit-kicker">YOUR TRAINING</p><h1 className="fit-page-title">{day}<span className="fit-heading-dot">.</span></h1><p className="fit-subtitle">No exercises logged for this day yet.</p></div><button className="fit-primary-button" onClick={addWorkout}><Icon name="plus" size={17} /> Add exercise</button></div>
                <div className='dashboard-header'>
                      <button onClick={handleLogout} className='nw-logout'>logout</button>
                 <button onClick={addWorkout} className='nw-add'>add workout</button>
                </div>
-                <div>
-                    <h1 className='no-workout'> It's {day}. Nothing logged yet.<br/> Start your first workout for today?</h1>
-                </div>
+                <div className="workout-empty"><div className="workout-empty-icon"><Icon name="activity" size={26} /></div><h2>Your workout starts here</h2><p>Add your first exercise for {day} to start building your training history.</p><button className="fit-primary-button" onClick={addWorkout}><Icon name="plus" size={16} /> Log first exercise</button></div>
                 <div className='exit-container'>
                     <button className='exit-button' onClick={redirectHome}>← Back to dashboard</button>
                 </div>
             </div>
+            </AppShell>
         )
     }
             
     return(
+    <AppShell section={day}>
     <div className="dashboard">
+        <div className="workout-page-heading"><div><p className="fit-kicker">YOUR TRAINING</p><h1 className="fit-page-title">{day}<span className="fit-heading-dot">.</span></h1><p className="fit-subtitle">Your logged exercises and performance.</p></div><button className="fit-primary-button" onClick={addWorkout}><Icon name="plus" size={17} /> Add exercise</button></div>
         <div className='dashboard-header'>
             <button onClick={handleLogout} className='header-left header-button top-button'>logout</button>
             <button onClick={addWorkout} className='header-right header-button top-button'>add workout</button>
@@ -117,11 +121,11 @@ const WorkoutDisplay = () => {
             <button className='exit-button' onClick={redirectHome}>← Back to dashboard</button>
         </div>
 
-        <h1 className='dashboard-title day'>{day}</h1>
+        <div className="fit-section-heading"><h2>Logged exercises <span className="workout-count">{workouts.length}</span></h2></div>
         <div className="workout-grid">
             {workouts.map(workout =>(
                 <div key={workout.id} className="workout-card" style={{borderLeft: `6px solid ${intensityColor[workout.intensity]}`}}>
-                    <h2 className="workout-exercise">{workout.exercise}</h2>
+                    <div className="workout-card-top"><h2 className="workout-exercise">{workout.exercise}</h2><span className={`intensity-tag intensity-${workout.intensity}`}>{({1:'Easy',2:'Moderate',3:'Hard'})[workout.intensity] || 'Workout'}</span></div>
                     <div className="workout-stats">
                         <div className="stat">
                             <span className="stat-value">{workout.weight}</span>
@@ -173,6 +177,7 @@ const WorkoutDisplay = () => {
             </div>
        
     </div>
+    </AppShell>
 )
 
 
