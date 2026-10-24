@@ -1,126 +1,124 @@
-.title {
-    position: absolute;
-    top: 1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    font-size: 0.85rem;
-    color: #898a9c;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-weight: 400;
-    white-space: nowrap;
+/* Home dashboard: weekday navigation and summary. */
+.dashboard-whole {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.8fr);
+  gap: 25px;
+  max-width: 1120px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 125px 35px 55px;
+  position: relative;
 }
 
-.dashboard-whole {
-    display: flex;
-    min-height: 100vh;
-    padding: 5rem 4rem 0 4rem;
-    gap: 6rem;
+.title {
+  position: absolute;
+  top: 49px;
+  left: 35px;
+  color: var(--text);
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+}
+
+.dashboard-left,
+.dashboard-right {
+  min-width: 0;
+  align-self: start;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
 }
 
 .dashboard-left {
-    flex: 1;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
+  padding: 24px;
+}
+
+.dashboard-left > div {
+  width: 100%;
 }
 
 .day-container {
-    margin-top: 3rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    width: 100%;
-    max-width: 260px;
+  display: grid;
+  gap: 9px;
+  width: 100%;
 }
 
 .day-button {
-    background: transparent;
-    border: none;
-    border-left: 2px solid #252538;
-    border-radius: 0;
-    font-size: 1rem;
-    font-weight: 400;
-    color: #898a9c;
-    padding: 0.85rem 1.5rem;
-    width: 100%;
-    cursor: pointer;
-    text-align: left;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    transition: all .2s ease;
+  width: 100%;
+  padding: 15px 18px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-light);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
 }
 
 .day-button:hover {
-    border-left: 2px solid #7c6fd4;
-    color: #e0e0ff;
-    background: rgba(83, 74, 183, 0.06);
-    padding: 0.85rem 1.5rem;
-    font-size: 1rem;
-    transform: translateX(8px);
+  background: var(--accent-dark);
+  border-color: var(--accent);
+  transform: translateX(3px);
 }
 
 .dashboard-right {
-    flex: 1;
-    margin-top: 3rem;
-    padding: 2rem 2.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    align-self: flex-start;
-    border-left: 1px solid #252538;
-    
+  display: flex;
+  flex-direction: column;
+  padding: 27px;
 }
 
 .dr-header {
-    font-size: 0.7rem;
-    font-weight: 500;
-    color: #7c6fd4;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    margin: 0 0 2rem 0;
-}
-.workout-amount h1 {
-    font-size: 0.65rem;
-    font-weight: 500;
-    color: #898a9c;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
+  margin-bottom: 24px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .dr-box {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid #1a1a2a;
-    margin-bottom: 2rem;
+  padding: 18px 0 23px;
+  border-bottom: 1px solid var(--border);
 }
 
-.dr-box h1 {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: #7c7e99;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    padding-bottom: 0;
-    border-bottom: none;
-    text-align: center;
+.dr-box:last-child {
+  border-bottom: 0;
+}
+
+.dr-box h1:not(.dr-stat) {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .dr-stat {
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    padding: 0.25rem 0;
-    text-align: left;
-    font-size: 3.5rem;
-    font-weight: 200;
-    color: #e0e0ff;
-    width: 100%;
-    margin: 0;
-    line-height: 1;
+  margin-top: 12px;
+  color: var(--text);
+  font-size: 45px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 760px) {
+  .dashboard-whole {
+    grid-template-columns: 1fr;
+    padding: 120px 18px 40px;
+  }
+
+  .title {
+    top: 45px;
+    left: 18px;
+    font-size: 23px;
+  }
+
+  .dashboard-left,
+  .dashboard-right {
+    padding: 20px;
+  }
 }
