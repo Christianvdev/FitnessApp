@@ -147,16 +147,11 @@
   border-radius: 10px;
   background: var(--surface-light);
   color: var(--text);
-  font-size: 0;
-  line-height: 0;
+  font-size: 13px;
+  font-weight: 600;
   transition: background 0.2s;
 }
 
-.exit-button::after {
-  content: "← Back to dashboard";
-  font-size: 13px;
-  line-height: 1.4;
-}
 
 .exit-button:hover {
   background: var(--accent-dark);
