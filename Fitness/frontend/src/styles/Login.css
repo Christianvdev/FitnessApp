@@ -1,62 +1,11 @@
-/* Shared layout for login, registration and workout forms. */
-.login-whole {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 14px;
-  width: calc(100% - 36px);
-  max-width: 440px;
-  min-height: 100vh;
-  margin: 0 auto;
-  padding: 65px 0;
-}
-
-/* The form feels like a simple, centered card. */
-.login-whole::before {
-  content: "FITNESS TRACKER";
-  margin-bottom: 12px;
-  color: var(--accent);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-align: center;
-}
-
-.login-whole > .form-text {
-  flex-shrink: 0;
-}
-
-.login-whole > button.form-text,
-.login-whole > .header-button {
-  min-height: 46px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--panel);
-  color: var(--text);
-  font-size: 13px;
-  font-weight: 600;
-  transition: background .2s;
-}
-
-.login-whole > button.form-text:hover,
-.login-whole > .header-button:hover {
-  background: var(--panel-hover);
-}
-
-.login-whole > button.form-text:first-of-type,
-.login-whole > .header-button:first-of-type {
-  border-color: transparent;
-  background: #e6eaff;
-  color: #181b25;
-}
-
-.login-whole > button.form-text:first-of-type:hover,
-.login-whole > .header-button:first-of-type:hover {
-  background: #cbd5ff;
-}
-
-.login-whole > p {
-  color: var(--danger);
-  font-size: 12px;
-  text-align: center;
-}
+/* Login, registration and exercise forms */
+.login-whole{display:flex;flex-direction:column;gap:13px;max-width:460px;min-height:100vh;margin:0 auto;padding:130px 22px 75px}
+.login-whole::before{content:"fittracker.";display:block;margin-bottom:7px;color:var(--text);font-size:29px;font-weight:750;letter-spacing:-1px}
+.login-whole::after{content:"Your training, organized.";order:-1;margin-bottom:7px;color:var(--accent);font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase}
+.login-whole>.form-text{flex-shrink:0}
+.login-whole>button.form-text,.login-whole>.header-button{min-height:47px;border:1px solid var(--border);border-radius:10px;background:var(--surface);color:var(--text);font-size:13px;font-weight:600}
+.login-whole>button.form-text:first-of-type,.login-whole>.header-button:first-of-type{border-color:transparent;background:#e7ebff;color:#171b29}
+.login-whole>button.form-text:hover,.login-whole>.header-button:hover{background:var(--surface-light)}
+.login-whole>button.form-text:first-of-type:hover,.login-whole>.header-button:first-of-type:hover{background:#cdd6ff}
+.login-whole>p{padding:11px;border-radius:9px;background:#39262a;color:var(--danger);font-size:12px;text-align:center}
+@media(max-width:600px){.login-whole{padding-top:110px}}
