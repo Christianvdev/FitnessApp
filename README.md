@@ -229,3 +229,9 @@ VITE_API_URL=http://localhost:8000
 SECRET_KEY=your-production-secret-key
 DEBUG=False
 ```
+
+<img width="623" height="395" alt="Screenshot 2026-10-23 225951" src="https://github.com/user-attachments/assets/b426bf81-7490-4ca2-a060-3ab4822c31f4" />
+
+<img width="623" height="308" alt="Screenshot 2026-10-23 230021" src="https://github.com/user-attachments/assets/0a78a7c7-2194-4f10-94b2-faf5e5dcfea6" />
+<img width="383" height="287" alt="Screenshot 2026-10-23 230001" src="https://github.com/user-attachments/assets/fc91fead-6f77-4113-b09f-eddab1add4a9" />
+
