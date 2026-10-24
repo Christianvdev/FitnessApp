@@ -1,102 +1,21 @@
-/* Global colors and basic styles.
-   Change these variables to change the whole app. */
-:root {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color-scheme: dark;
-
-  --bg: #101114;
-  --surface: #1b1d22;
-  --surface-light: #24272d;
-  --border: #34373f;
-  --text: #f5f5f7;
-  --muted: #a5a9b3;
-  --accent: #b6c3ff;
-  --accent-dark: #242c44;
-  --danger: #ffadad;
-  --shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
-
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  -webkit-font-smoothing: antialiased;
+/* FitTracker design tokens: change these to change the entire theme. */
+:root{
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+color-scheme:dark;
+--bg:#101114;--surface:#191b20;--surface-light:#24272e;--border:#32353e;
+--text:#f4f5f8;--muted:#a2a7b3;--soft:#797f8d;
+--accent:#b4c3ff;--accent-dark:#29314a;--danger:#ffadb2;
+--shadow:0 10px 32px rgba(0,0,0,.13);
+--panel:var(--surface);--panel-hover:var(--surface-light);--field:#15171d;
+color:var(--text);background:var(--bg);font-synthesis:none;-webkit-font-smoothing:antialiased;
 }
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  background: var(--bg);
-}
-
-#root {
-  min-height: 100vh;
-}
-
-h1, h2, h3, p {
-  margin: 0;
-}
-
-h1, h2, h3 {
-  color: var(--text);
-  letter-spacing: -0.03em;
-}
-
-button, input, select, textarea {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-button:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
-}
-
-button:focus-visible,
-input:focus-visible,
-select:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
-
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-/* Shared input styles for all workout forms. */
-.form-text {
-  width: 100%;
-  padding: 13px 15px;
-  border: 1px solid var(--border);
-  border-radius: 11px;
-  outline: none;
-  background: var(--surface-light);
-  color: var(--text);
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.form-text::placeholder {
-  color: var(--muted);
-}
-
-.form-text:focus {
-  border-color: var(--accent);
-}
-
-select.form-text {
-  cursor: pointer;
-}
-
-@media (max-width: 600px) {
-  :root {
-    font-size: 15px;
-  }
-}
+*{box-sizing:border-box}body{margin:0;min-width:320px;min-height:100vh;background:var(--bg)}
+#root{min-height:100vh}h1,h2,h3,p{margin:0}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.55}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+a{color:var(--accent);text-decoration:none}
+.form-text{width:100%;min-height:48px;padding:13px 15px;border:1px solid var(--border);border-radius:10px;background:var(--field);color:var(--text);font-size:14px}
+.form-text::placeholder{color:var(--soft)}.form-text:focus{outline:none;border-color:var(--accent)}
+select.form-text{cursor:pointer}
+.header-button{padding:11px 16px;border:1px solid var(--border);border-radius:10px;background:var(--surface-light);color:var(--text);font-size:12px;font-weight:600}
+.header-button:hover{background:var(--accent-dark)}
+.hover-scale{transition:transform .2s}.hover-scale:hover{transform:translateY(-2px)}
