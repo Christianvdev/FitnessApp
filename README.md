@@ -47,47 +47,14 @@ A full stack fitness tracking web application built with Django REST Framework a
 
 ## Project Structure
 
-```
-FitnessApp/
-├── Fitness/                    # Django project root
-│   ├── accounts/               # User registration + /me/ endpoint
-│   │   ├── models.py
-│   │   ├── serializers.py
-│   │   ├── views.py
-│   │   └── urls.py
-│   │
-│   ├── tracker/                # Workout tracking
-│   │   ├── models.py
-│   │   ├── serializers.py
-│   │   ├── views.py
-│   │   └── urls.py
-│   │
-│   ├── workouts/               # Django project config
-│   │   ├── settings.py
-│   │   ├── urls.py
-│   │   └── wsgi.py
-│   │
-│   ├── manage.py
-│   ├── requirements.txt
-│   └── Procfile
-│
-└── frontend/                   # React app
-    ├── src/
-    │   ├── api/
-    │   │   └── axios.js        # Axios instance + JWT interceptor + refresh logic
-    │   ├── pages/
-    │   │   ├── Login.jsx
-    │   │   ├── Register.jsx
-    │   │   ├── DashboardPage.jsx
-    │   │   ├── WorkoutDay.jsx
-    │   │   └── WorkoutLog.jsx
-    │   ├── styles/
-    │   └── App.jsx
-    ├── vercel.json
-    └── .env
-```
-
----
+| Path | Purpose |
+|------|---------|
+| `Fitness/manage.py` | Django command-line entry point |
+| `Fitness/requirements.txt` | Backend dependencies |
+| `Fitness/workouts/` | Django settings and URL configuration |
+| `Fitness/accounts/` | Account endpoints |
+| `Fitness/tracker/` | Workout models, views, and migrations |
+| `Fitness/frontend/` | React/Vite frontend |
 
 ## Getting Started
 

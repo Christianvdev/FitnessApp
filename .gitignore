@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.sqlite3-journal
+.venv/
+venv/
+.pytest_cache/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Frontend build output
+node_modules/
+dist/
+build/
+
+# Local tooling
+.DS_Store
+.idea/
+.vscode/
